@@ -13,8 +13,10 @@ class _CustomAnimatedPositionState extends State<CustomAnimatedPosition> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Stack(
+          alignment: Alignment.center,
           children: [
             Container(color: Colors.amber, width: 400, height: 400),
             AnimatedPositioned(
