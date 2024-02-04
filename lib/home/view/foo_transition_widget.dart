@@ -20,11 +20,11 @@ class _FooTransitionWidgetScreenState extends State<FooTransitionWidgetScreen>
       duration: const Duration(seconds: 2),
       reverseDuration: const Duration(seconds: 2),
     );
-    _greencircle = Tween<AlignmentGeometry>(
-            begin: Alignment.topCenter, end: Alignment.bottomCenter)
-        .animate(_animatedController);
     _redCircle = Tween<AlignmentGeometry>(
             begin: Alignment.topCenter, end: Alignment.bottomCenter)
+        .animate(_animatedController);
+    _greencircle = Tween<AlignmentGeometry>(
+            begin: Alignment.centerLeft, end: Alignment.centerRight)
         .animate(_animatedController);
     super.initState();
   }
@@ -35,21 +35,27 @@ class _FooTransitionWidgetScreenState extends State<FooTransitionWidgetScreen>
       appBar: AppBar(
         title: const Text('Title'),
       ),
-      body: Container(
-          child: Column(
+      body: Column(
         children: [
-          AlignTransition(
-            alignment: _redCircle,
-            child: const CircleAvatar(
-              backgroundColor: Colors.red,
+          Expanded(
+            child: Stack(
+              children: [
+                AlignTransition(
+                  alignment: _redCircle,
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.red,
+                  ),
+                ),
+                AlignTransition(
+                  alignment: _greencircle,
+                  child: const CircleAvatar(
+                    backgroundColor: Colors.green,
+                  ),
+                ),
+              ],
             ),
           ),
-          AlignTransition(
-            alignment: _greencircle,
-            child: const CircleAvatar(
-              backgroundColor: Colors.green,
-            ),
-          ),
+          const Spacer(),
           Wrap(
             children: [
               ElevatedButton(
@@ -82,7 +88,7 @@ class _FooTransitionWidgetScreenState extends State<FooTransitionWidgetScreen>
             ],
           )
         ],
-      )),
+      ),
     );
   }
 }
