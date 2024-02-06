@@ -1,4 +1,5 @@
 import 'package:animation_app/core/animation/animation_route.dart';
+import 'package:animation_app/home/view/animated_builder.dart';
 import 'package:animation_app/home/view/animated_container_screen.dart';
 import 'package:animation_app/home/view/animatedcrossfead_screen.dart';
 import 'package:animation_app/home/view/animatedposition_screen.dart';
@@ -85,6 +86,14 @@ class HomePageScreen extends StatelessWidget {
                   );
                 },
                 child: const Text("GO To Transition widget ")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    RotationAndScaleTransitionAnimationRoute(
+                        const AnimatedBuilderScreen()),
+                  );
+                },
+                child: const Text("GO To Animated Builder ")),
           ],
         ),
       ),
