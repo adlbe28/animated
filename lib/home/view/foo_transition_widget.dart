@@ -85,7 +85,6 @@ class _FooTransitionWidgetScreenState extends State<FooTransitionWidgetScreen>
               ],
             ),
           ),
-          const Spacer(),
           Wrap(
             spacing: 10,
             children: [
